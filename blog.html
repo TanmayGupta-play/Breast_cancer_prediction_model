@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+<style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #F05A7E;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Main Content Section */
+main {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+/* Blog Post Section */
+.blog-posts {
+  width: 70%;
+}
+
+.post {
+  margin-bottom: 30px;
+}
+
+.post-title {
+  font-size: 2em;
+  color: #333;
+}
+
+.post-date {
+  font-size: 1em;
+  color: #777;
+}
+
+.post-excerpt {
+  font-size: 1.1em;
+  color: #555;
+  margin-top: 10px;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #F05A7E;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.read-more:hover {
+  background-color: #d85a5a;
+  transform: scale(1.05);
+}
+
+/* Sidebar Section */
+.sidebar {
+  width: 25%;
+  padding-left: 20px;
+}
+
+.sidebar-title {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.category-list,
+.recent-posts {
+  list-style-type: none;
+}
+
+.category-list li,
+.recent-posts li {
+  margin-bottom: 10px;
+}
+
+.category-list a,
+.recent-posts a {
+  text-decoration: none;
+  color: #F05A7E;
+  font-size: 1.1em;
+}
+
+.category-list a:hover,
+.recent-posts a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+.logo-image {
+  width: 40px; /* Adjust size of the logo as needed */
+  height: auto;
+  margin-right: 10px; /* Space between the logo image and the text */
+  border-radius: 50%;
+}
+@font-face {
+  font-family: 'Solena';
+  src: url('C:/Users/gupta/Desktop/breast_cancer/fonts/Solena.ttf') format('truetype');
+}
+
+.logo {
+  font-family: 'Solena', sans-serif; /* Apply Solena font */
+  font-size: 2em; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #fff; /* Change text color to white */
+}
+@font-face {
+  font-family: 'Solena';
+  src: url('C:/Users/gupta/Desktop/breast_cancer/fonts/Solena.ttf') format('truetype');
+}
+
+.logo {
+  font-family: 'Solena', sans-serif; /* Apply Solena font */
+  font-size: 2em; /* Adjust font size as needed */
+  font-weight: bold;
+  color: #fff; /* Change text color to white */
+}
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+<img src="{{ url_for('static', filename='logo.webp') }}" alt="Logo" class="logo-image">
+      Beyond Breast Cancer
+    </div>
+        <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('blog') }}">Blog</a>
+                
+                <a href="{{ url_for('aboutus') }}">About-Us</a>
+<a href="{{ url_for('login_page') }}">Logout</a>
+
+        </nav>
+    </header>
+    
+    <main>
+    <div class="content">
+      <!-- Blog Post Section -->
+      <section class="blog-posts">
+        <article class="post">
+          <h2 class="post-title">How Breast Cancer Awareness Saves Lives</h2>
+          <p class="post-date">Posted on  October 30 2024 by Apollo Hospitals</p>
+          <p class="post-excerpt">Breast cancer awareness has become crucial in recent years. Early detection through regular checkups and self-exams has significantly increased survival rates...</p>
+           <a href="https://www.apollohospitals.com/health-library/breast-cancer-early-detection-saves-lives/" class="read-more" target="_blank">Read More</a>
+        </article>
+
+        <article class="post">
+          <h2 class="post-title">Support Systems for Breast Cancer Patients</h2>
+          <p class="post-date">Posted on October 25, 2024 by Web md </p>
+          <p class="post-excerpt">Having a support system during breast cancer treatment can make all the difference. Patients often rely on loved ones, support groups, and even online communities to help them through the emotional and physical challenges...</p>
+      <a href="https://www.webmd.com/breast-cancer/features/breast-cancer-blogs" class="read-more" target="_blank">Read More</a>
+        </article>
+
+        <article class="post">
+          <h2 class="post-title">Nutrition and Breast Cancer Recovery</h2>
+          <p class="post-date">Posted on September 15, 2024 by HCA Healthcare</p>
+          <p class="post-excerpt">Proper nutrition is vital during recovery from breast cancer treatment. Eating a balanced diet helps patients regain strength and improve their quality of life...</p>
+      <a href="https://sarahcannon.com/for-patients/learn-about-cancer/breast-cancer/nutrition.dot#:~:text=Choose%20a%20variety%20of%20colorful,Choose%20sources%20of%20healthy%20fat." class="read-more" target="_blank">Read More</a>
+        </article>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="sidebar">
+        <h3 class="sidebar-title">Categories</h3>
+        <ul class="category-list">
+          <li><a href="https://www.apollohospitals.com/health-library/breast-cancer-early-detection-saves-lives/">Breast Cancer Awareness</a></li>
+          <li><a href="ttps://www.webmd.com/breast-cancer/features/breast-cancer-blogs">Support & Community</a></li>
+          <li><a href="https://www.ucsfhealth.org/education/breast-cancer-self-care-and-recovery-nutrition">Nutrition & Health</a></li>
+          <li><a href="https://www.breastcancer.org/personal-stories">Survivor Stories</a></li>
+          <li><a href="https://www.bcrf.org/">Fund raiser</a></li>
+        </ul>
+
+        <h3 class="sidebar-title">Recent Posts</h3>
+        <ul class="recent-posts">
+          <li><a href="https://www.apollohospitals.com/health-library/breast-cancer-early-detection-saves-lives/">How Breast Cancer Awareness Saves Lives</a></li>
+          <li><a href="https://www.webmd.com/breast-cancer/features/breast-cancer-blogs">Support Systems for Breast Cancer Patients</a></li>
+          <li><a href="https://sarahcannon.com/for-patients/learn-about-cancer/breast-cancer/nutrition.dot#:~:text=Choose%20a%20variety%20of%20colorful,Choose%20sources%20of%20healthy%20fat."">Nutrition and Breast Cancer Recovery</a></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Beyond Breast Cancer. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

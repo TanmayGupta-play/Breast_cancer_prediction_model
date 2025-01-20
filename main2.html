@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 900px;
+            margin: auto;
+        }
+        input[type="text"], input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            grid-column: span 3;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .csv-upload {
+            margin-top: 20px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cancer Prediction</h1>
+    <form method="POST" action="/predict">
+        <input type="text" name="radius_mean" id="radius_mean" placeholder="Radius Mean" required>
+        <input type="text" name="texture_mean" id="texture_mean" placeholder="Texture Mean" required>
+        <input type="text" name="perimeter_mean" id="perimeter_mean" placeholder="Perimeter Mean" required>
+        <input type="text" name="area_mean" id="area_mean" placeholder="Area Mean" required>
+        <input type="text" name="smoothness_mean" id="smoothness_mean" placeholder="Smoothness Mean" required>
+        <input type="text" name="compactness_mean" id="compactness_mean" placeholder="Compactness Mean" required>
+        <input type="text" name="concavity_mean" id="concavity_mean" placeholder="Concavity Mean" required>
+        <input type="text" name="concave_points_mean" id="concave_points_mean" placeholder="Concave Points Mean" required>
+        <input type="text" name="symmetry_mean" id="symmetry_mean" placeholder="Symmetry Mean" required>
+        <input type="text" name="fractal_dimension_mean" id="fractal_dimension_mean" placeholder="Fractal Dimension Mean" required>
+        <input type="text" name="radius_se" id="radius_se" placeholder="Radius SE" required>
+        <input type="text" name="texture_se" id="texture_se" placeholder="Texture SE" required>
+        <input type="text" name="perimeter_se" id="perimeter_se" placeholder="Perimeter SE" required>
+        <input type="text" name="area_se" id="area_se" placeholder="Area SE" required>
+        <input type="text" name="smoothness_se" id="smoothness_se" placeholder="Smoothness SE" required>
+        <input type="text" name="compactness_se" id="compactness_se" placeholder="Compactness SE" required>
+        <input type="text" name="concavity_se" id="concavity_se" placeholder="Concavity SE" required>
+        <input type="text" name="concave_points_se" id="concave_points_se" placeholder="Concave Points SE" required>
+        <input type="text" name="symmetry_se" id="symmetry_se" placeholder="Symmetry SE" required>
+        <input type="text" name="fractal_dimension_se" id="fractal_dimension_se" placeholder="Fractal Dimension SE" required>
+        <input type="text" name="radius_worst" id="radius_worst" placeholder="Radius Worst" required>
+        <input type="text" name="texture_worst" id="texture_worst" placeholder="Texture Worst" required>
+        <input type="text" name="perimeter_worst" id="perimeter_worst" placeholder="Perimeter Worst" required>
+        <input type="text" name="area_worst" id="area_worst" placeholder="Area Worst" required>
+        <input type="text" name="smoothness_worst" id="smoothness_worst" placeholder="Smoothness Worst" required>
+        <input type="text" name="compactness_worst" id="compactness_worst" placeholder="Compactness Worst" required>
+        <input type="text" name="concavity_worst" id="concavity_worst" placeholder="Concavity Worst" required>
+        <input type="text" name="concave_points_worst" id="concave_points_worst" placeholder="Concave Points Worst" required>
+        <input type="text" name="symmetry_worst" id="symmetry_worst" placeholder="Symmetry Worst" required>
+        <input type="text" name="fractal_dimension_worst" id="fractal_dimension_worst" placeholder="Fractal Dimension Worst" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    <div class="csv-upload">
+        <input type="file" id="csvFile" accept=".csv">
+        <button id="uploadCsv">Upload CSV</button>
+    </div>
+
+    <h2 id="predictionResult">{{ prediction }}</h2>
+
+    <script>
+        $('#uploadCsv').on('click', function() {
+            const file = $('#csvFile')[0].files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const rows = text.split('\n').map(row => row.split(','));
+                // Assuming the first row contains the headers
+                const headers = rows[0];
+                // Fill in the form based on the CSV file
+                for (let i = 1; i < headers.length; i++) {
+                    $(`#${headers[i].trim()}`).val(rows[1][i].trim());
+                }
+            };
+            reader.onerror = function() {
+                console.error("Could not read the file");
+            };
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>
+

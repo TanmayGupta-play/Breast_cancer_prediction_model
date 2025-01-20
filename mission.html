@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Mission</title>
+<style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Section */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #F05A7E;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 40px;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+.donate-button {
+  color: #f8c22e;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  background: url('C:\Users\gupta\Desktop\breast_cancer\image\empathy.webp') center/cover no-repeat;
+padding: 60px 20px;  /* Added padding for space around content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+text-align:center;
+
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2em;
+
+  max-width: 600px;
+}
+.hero-image {
+  flex: 1 1 40%; /* Allows image to take up 40% of container on larger screens */
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.hero-content {
+  flex: 1 1 60%; /* Allows content to take up 60% of container */
+  max-width: 100%;
+}
+.hero-container {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  gap: 30px; /* Space between image and text */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1.1em;
+  }
+
+  .hero-image {
+    width: 80%; /* Adjusts image size on smaller screens */
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Mission Details Section */
+
+.mission-details {
+  padding: 50px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.mission-details h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.mission-item {
+  margin-bottom: 30px;
+}
+.mission-icon {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mission-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.mission-item p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+/* Impact Section */
+.impact {
+  background-color: #f05a7e;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+}
+
+.impact h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.impact p {
+  font-size: 1.2em;
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .mission-details {
+    padding: 20px;
+  }
+
+  .impact {
+    padding: 20px;
+  }
+}
+</style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+<img src="{{ url_for('static', filename='logo.webp') }}" alt="Logo" class="logo-image">
+      Beyond Breast Cancer
+    </div>
+        <nav>
+
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('blog') }}">Blog</a>
+                <a href="{{ url_for('login_page') }}">Logout</a>
+                <a href="{{ url_for('aboutus') }}">About-Us</a>
+
+        </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+      <div class="hero-container">
+
+        <div class="hero-content">
+        <h1>Our Mission</h1>
+        <p>We are dedicated to helping breast cancer patients through support, education, and resources to overcome the challenges of the disease.</p>
+      </div>
+      </div>
+    </section>
+
+    <section class="mission-details">
+      <h2>Our Core Values</h2>
+      <div class="mission-item">
+        <h3>Empathy</h3>
+        <p>We listen, care, and provide the emotional support every patient deserves.</p>
+      </div>
+      <div class="mission-item">
+        <h3>Education</h3>
+        <p>We provide the latest knowledge and information about breast cancer treatment options.</p>
+      </div>
+      <div class="mission-item">
+        <h3>Community</h3>
+        <p>We aim to build a supportive network for those affected by breast cancer.</p>
+      </div>
+    </section>
+
+    <section class="impact">
+      <h2>Our Impact</h2>
+      <p>We have helped thousands of women and men fight breast cancer, supporting their journey towards recovery with resources, emotional support, and guidance.</p>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Beyond Breast Cancer. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

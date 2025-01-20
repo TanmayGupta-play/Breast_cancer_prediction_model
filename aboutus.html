@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style3.css') }}">
+</head>
+<body>
+    <header>
+    <div class="logo">
+<img src="{{ url_for('static', filename='logo.webp') }}" alt="Logo" class="logo-image">
+      Beyond Breast Cancer
+    </div>
+        <nav>
+
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('blog') }}">Blog</a>
+                
+                <a href="{{ url_for('aboutus') }}">About-Us</a>
+<a href="{{ url_for('login_page') }}">Logout</a>
+
+        </nav>
+    </header>
+ <main>
+    <section class="about-us">
+      <div class="about-content">
+        <h1>About Us</h1>
+        <p>We are a group of students providing support and resources for those affected by breast cancer. Our goal is to offer information, emotional support, and community for breast cancer patients, survivors, and their families.</p>
+      </div>
+
+      <div class="mission-section">
+        <h2>Our Mission</h2>
+        <p>At Beyond Breast Cancer, we are committed to empowering individuals affected by breast cancer through accessible and affordable resources. We believe that early detection and prevention are key, which is why we’ve developed an easy-to-use breast cancer prediction model. This tool is specifically designed to be affordable, especially for those in underserved communities. Our mission is to raise awareness and provide individuals with the tools they need to take control of their health, ensuring that no one faces breast cancer without support.</p>
+      </div>
+
+
+
+      <div class="values-section">
+        <h2>Our Values</h2>
+        <ul>
+          <li><strong>Empathy:</strong> We are committed to providing compassionate care and understanding.</li>
+          <li><strong>Integrity:</strong> We operate with honesty and transparency in everything we do.</li>
+          <li><strong>Community:</strong> We foster a supportive environment for everyone affected by breast cancer.</li>
+          <li><strong>Hope:</strong> We inspire hope through education, support, and outreach.</li>
+        </ul>
+      </div>
+
+      <div class="team-section">
+        <h2>Meet Our Team</h2>
+
+        <!-- Team Member 1 -->
+        <div class="team-member">
+<img src="{{ url_for('static', filename='t1.jpeg') }}" alt="Logo" class="logo-image">
+          <div class="team-info">
+            <h3>Tanmay Gupta</h3>
+            <p>23BDS061</p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-member">
+<img src="{{ url_for('static', filename='t2.jpeg') }}" alt="Logo" class="logo-image">
+          <div class="team-info">
+            <h3>Yashpreet Singh</h3>
+            <p>23BDS072</p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-member">
+<img src="{{ url_for('static', filename='t3.jpeg') }}" alt="Logo" class="logo-image">
+          <div class="team-info">
+            <h3>Harsh Raj</h3>
+            <p>23BDS076</p>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-member">
+<img src="{{ url_for('static', filename='t2.jpeg') }}" alt="Logo" class="logo-image">
+          <div class="team-info">
+            <h3>Vishwajeet Yadav</h3>
+            <p>23BDS069</p>
+          </div>
+        </div>
+
+        <!-- Team Member 5 -->
+        <div class="team-member">
+<img src="{{ url_for('static', filename='t2.jpeg') }}" alt="Logo" class="logo-image">
+          <div class="team-info">
+            <h3>Vijal Pal Singh</h3>
+            <p>23BDS067</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Beyond Breast Cancer. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
+
